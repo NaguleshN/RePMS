@@ -1,12 +1,9 @@
-import { useNavigate } from "react-router-dom";
-const serverUrl = "http://localhost:5000"
 
 export const ApplyApi = async(formData) =>{
-  // const navigate = useNavigate();
     try {
         const jsonData = Object.fromEntries(formData.entries());
         console.log("Form:", jsonData);
-        const res = await fetch("http://localhost:5000/api/forms/apply", {
+        const res = await fetch(`${import.meta.env.VITE_BASE_URL}/api/forms/apply`, {
             method : "POST",
             body: formData,
         }
@@ -15,7 +12,6 @@ export const ApplyApi = async(formData) =>{
         console.log("Project added successfully:", data);
         alert("Project submitted successfully!");
 
-        // navigate("/");
         return data;
       } catch (error) {
         console.error("Error adding project:", error);

@@ -33,11 +33,18 @@ const Login = () => {
         navigate('/')
     } 
   return (
-    <div>
-        <h1>Microsoft auth</h1>
-    <button onClick={handleLogin} type="button">Login with microsoft</button>
-
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="bg-white p-8 rounded-xl shadow-lg max-w-sm w-full text-center">
+      <h1 className="text-3xl font-semibold text-gray-800 mb-6">Login to our website</h1>
+      <button 
+        className="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        onClick={handleLogin} 
+        type="button">
+        Login with Microsoft
+      </button>
     </div>
+  </div>
+  
   )
 }
 

@@ -13,7 +13,7 @@ const ProjectSchema = new mongoose.Schema({
     problemStatement: { type: String, required: true },
     abstract: { type: String, required: true },
     isInterDepartmental: { type: Boolean, required: true },
-    domains: [{ type: String, required: true }], // Array of strings
+    domains: [{ type: String }], // Array of strings
     teamSize: { type: Number, required: true },
     hasTeam: { type: Boolean, required: true },
     numMembers: { type: Number, required: true },

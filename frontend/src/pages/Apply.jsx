@@ -1,40 +1,10 @@
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
-import { ChevronDownIcon } from '@heroicons/react/16/solid'
-import { useState,useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState,useEffect } from 'react';
 import { ApplyApi } from '../api/ApplyApi';
+import { useNavigate } from "react-router-dom";
 
 const Apply = () =>{
   
   const navigate = useNavigate();
-  const effectRan = useRef(false);
-  
-  useEffect(() => {
-    if (effectRan.current) return; // Prevent running twice
-  
-    const getData = async () => {
-      try {
-        const response = await fetch("http://localhost:5000/api/auth/get-user", {
-          method: "GET",
-          credentials: "include",
-        });
-  
-        const data = await response.json();
-  
-        if (!response.ok) {
-          alert(data.message);
-          navigate("/login");
-        }
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-      }
-    };
-  
-    getData();
-    effectRan.current = true; // Mark as run
-  }, [navigate]);
-  
-
     const [title, setTitle] = useState("");
     const [titleError, setTitleError] = useState("");
     const [projectTheme, setProjectTheme] = useState("");
@@ -180,32 +150,113 @@ const Apply = () =>{
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (
-          !title.trim() ||
-          !projectTheme.trim() ||
-          !problemStatement.trim() ||
-          !abstract.trim() ||
-          file === null ||
-          domains.length === 0 ||
-          teamSize <= 0 ||
-          !mentor.name.trim() ||
-          !mentor.designation.trim() ||
-          !mentor.department.trim() ||
-          !mentor.email.trim() ||
-          !mentor.contact.trim() ||
-          !lead.name.trim() ||
-          !lead.rollNo.trim() ||
-          !lead.institution.trim() ||
-          !lead.department.trim() ||
-          !lead.email.trim() ||
-          !lead.contact.trim() ||
-          hasTeam === "" ||  // Ensure a value is selected
-          numMembers <= 0 ||
-          (hasTeam === "Yes" && teamMembers.length === 0) // Check team members if applicable
-      ) {
-          alert("Please fill in all the required fields.");
+        if (!title.trim()) {
+          alert("Project title is required.");
           return;
       }
+      
+      if (!projectTheme.trim()) {
+          alert("Project theme is required.");
+          return;
+      }
+      
+      if (!problemStatement.trim()) {
+          alert("Problem statement is required.");
+          return;
+      }
+      
+      if (!abstract.trim()) {
+          alert("Abstract is required.");
+          return;
+      }
+      
+      if (file === null) {
+          alert("Please upload a project file.");
+          return;
+      }
+      
+      // if (domains.length === 0) {
+      //     alert("Please select at least one domain.");
+      //     return;
+      // }
+      
+      if (teamSize <= 0) {
+          alert("Team size must be greater than 0.");
+          return;
+      }
+      
+      if (!mentor.name.trim()) {
+          alert("Mentor's name is required.");
+          return;
+      }
+      
+      if (!mentor.designation.trim()) {
+          alert("Mentor's designation is required.");
+          return;
+      }
+      
+      if (!mentor.department.trim()) {
+          alert("Mentor's department is required.");
+          return;
+      }
+      
+      if (!mentor.email.trim()) {
+          alert("Mentor's email is required.");
+          return;
+      }
+      
+      if (!mentor.contact.trim()) {
+          alert("Mentor's contact number is required.");
+          return;
+      }
+      
+      if (!lead.name.trim()) {
+          alert("Lead's name is required.");
+          return;
+      }
+      
+      if (!lead.rollNo.trim()) {
+          alert("Lead's roll number is required.");
+          return;
+      }
+      
+      if (!lead.institution.trim()) {
+          alert("Lead's institution is required.");
+          return;
+      }
+      
+      if (!lead.department.trim()) {
+          alert("Lead's department is required.");
+          return;
+      }
+      
+      if (!lead.email.trim()) {
+          alert("Lead's email is required.");
+          return;
+      }
+      
+      if (!lead.contact.trim()) {
+          alert("Lead's contact number is required.");
+          return;
+      }
+      
+      if (hasTeam === "") {
+          alert("Please select whether you have a team.");
+          return;
+      }
+      
+      if (numMembers <= 0) {
+          alert("Number of team members must be greater than 0.");
+          return;
+      }
+      
+      if (hasTeam === "Yes" && teamMembers.length === 0) {
+          alert("Please add at least one team member.");
+          return;
+      }
+      
+      // If all checks pass, proceed with form submission
+      
 
         const formData = new FormData();
         formData.append("title", title);
@@ -239,7 +290,10 @@ const Apply = () =>{
         // console.log("Form submitted successfully with the following data:");
         // console.log(formData);
         const result = await ApplyApi(formData);
-        console.log(result)
+        console.log(result.success === true)
+        if(result.success === true){
+          navigate("/")
+        }
 
     }
 

@@ -18,6 +18,7 @@ export const Login = async (req,res) =>{
         res.cookie('access_token' , token,{
             httpOnly:true
         })
+        // localStorage.setItem("access_token", token);
         res.status(200).json({
             success : true,
             message : "User Loggedin successfully",

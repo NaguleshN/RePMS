@@ -1,0 +1,11 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.main-content {
+  padding-top: 70px; /* Adjust this value based on your navbar height (e.g., if your navbar is around 60px high) */
+}
+button{
+  padding: 15px 20px;
+  font-size: medium;
+}

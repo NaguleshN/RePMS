@@ -3,12 +3,13 @@ import User from '../models/User.js'
 
 export const Login = async (req,res) =>{ 
     try {
-        const {name, email, phoneNumber, avatar} =req.body;
+        const {name, rollNo, email, lastSignInTime} =req.body;
+        
         let user
         user = await User.findOne({email})
         if(!user){
             const newUser = new User({
-                name, email, phoneNumber, avatar
+                name, rollNo, email, lastSignInTime
             })
             user= await newUser.save()
         }

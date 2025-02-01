@@ -10,9 +10,10 @@ const Login = () => {
 
     const handleLogin = async() =>{
         const loginResponse = await signInWithPopup(auth, provider) 
-        // console.log(loginResponse)
+        console.log(loginResponse)
         const user = loginResponse.user
         const tokres= loginResponse._tokenResponse
+        console.log(tokres)
         const userData = {
             name : tokres.firstName,
             rollNo : tokres.lastName, 
@@ -34,22 +35,48 @@ const Login = () => {
         if(!response.ok){
             alert(data.message)
         }
+        alert("Login Successfull !!!")
         navigate('/')
     } 
   return (
-    <> <Navbar />
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-    <div className="bg-white p-8 rounded-xl shadow-lg max-w-sm w-full text-center">
-      <h1 className="text-3xl font-semibold text-gray-800 mb-6">Login to our website</h1>
-      <button 
-        className="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        onClick={handleLogin} 
-        type="button">
-        Login with Microsoft
-      </button>
+    <>
+    <Navbar />
+    
+    <div className="flex min-h-screen items-center justify-center bg-gray-100 px-4">
+      <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-md">
+        {/* Logo */}
+        <div className="flex justify-center">
+          <img 
+            className="h-12 w-auto" 
+            src="https://blogs.microsoft.com/wp-content/uploads/prod/2012/08/8867.Microsoft_5F00_Logo_2D00_for_2D00_screen-1024x376.jpg" 
+            alt="Your Company" 
+          />
+        </div>
+  
+        {/* Heading */}
+        <h2 className="mt-6 text-center text-2xl font-bold tracking-tight text-gray-900">
+          Log in to your account
+        </h2>
+  
+        {/* Form */}
+        <div className="mt-6 space-y-4">
+          <div>
+          
+          </div>
+  
+          {/* Sign-in Button */}
+          <button 
+            type="button" 
+            onClick={handleLogin}  
+            className="w-full rounded-md bg-indigo-600 px-4 py-2 text-white font-semibold hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          >
+            Sign in
+          </button>
+        </div>
+      </div>
     </div>
-  </div>
   </>
+  
   )
 }
 

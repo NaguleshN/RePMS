@@ -250,7 +250,7 @@ const Apply = () => {
   
   return (
     <> <Navbar />
-    <form className="m-5 flex justify-center items-center" onSubmit={handleSubmit}> 
+    <form className="mt-20 m-5 flex justify-center items-center" onSubmit={handleSubmit}> 
       <div className="space-y-12">
         <div className="border-b border-gray-900/10 pb-12">
         <div className="flex items-center mt-4">

@@ -10,13 +10,15 @@ import About from './components/About.jsx';
 import Navbar from './components/Navbar.jsx';
 import './styles/App.css';
 import Logout from './pages/Logout.jsx';
+import ViewProject from './pages/ViewProject.jsx'
+import NotFound from './pages/NotFound.jsx';
 
 function App() {
 
   return (
     
     <Router>
-      <div className="main-content">
+      {/* <div className="main-content"> */}
       {/* <Navbar /> */}
 
       <Routes>
@@ -27,11 +29,13 @@ function App() {
         <Route path="/apply" element={<Apply />} />
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
+        <Route path="/view" element={<ViewProject />} />
         <Route element={<CheckAuthentication />}>
             <Route path="/allprojects" element={<ListProjects />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
-      </div>
+      {/* </div> */}
     </Router>
   )
 }

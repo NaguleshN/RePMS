@@ -28,7 +28,7 @@ const ListProjects = () => {
 
     return (
       <><Navbar/>
-        <div className="flex flex-wrap justify-center gap-6 p-6">
+        <div className="mt-20 flex flex-wrap justify-center gap-6 p-6">
         {projects && projects.length > 0 ? (
           projects.map((project, index) => (
             <div
@@ -66,8 +66,9 @@ const ListProjects = () => {
                 <span className="text-gray-800 font-semibold">Institution:</span>
                 <span className="text-gray-600"> {project.lead.institution}</span>
               </div>
-  
-              <div className="border-t mt-4 pt-3">
+
+              <a href='#'>View more</a>
+              {/* <div className="border-t mt-4 pt-3">
                 <h3 className="text-lg font-semibold text-gray-800">Lead</h3>
                 <p className="text-gray-600 text-sm">
                   {project.lead.name} ({project.lead.rollNo})
@@ -111,7 +112,7 @@ const ListProjects = () => {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </div> */}
             </div>
           ))
         ) : (

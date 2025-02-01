@@ -1,19 +1,84 @@
-import React from 'react';
+import React,{useState} from 'react';
 import '../styles/Home.css';
-import heroimg from "../assets/re-hero.jpg";
-import projectImage from "../assets/re2.webp"; 
 import Navbar from './Navbar.jsx';
+// import 'frontend\src\assets\re6.webp'
 
 
 function Home() {
+    const [selectedStep, setSelectedStep] = useState(1);
+    const renderContent = () => {
+        switch (selectedStep) {
+          case 1:
+            return <div>Personal Info content</div>;
+          case 2:
+            return <div>Account Info content</div>;
+          case 3:
+            return <div>Review content</div>;
+          default:
+            return <div>Select a step</div>;
+        }
+      };
     return (
         <>
         <Navbar />
-            <section id="hero" className="hero section dark-background">
-                <img src={heroimg} alt="Hero Background" className="hero-bg" />
+
+        <div className="mt-16 relative overflow-hidden bg-white">
+  <div className="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
+    <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
+      <div className="sm:max-w-lg">
+        <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Ignite Your Ideas, Transform the Future</h1>
+        <p className="mt-4 text-xl text-gray-500">Join the Project Intake Program at Ré</p>
+      </div>
+      <div>
+        <div className="mt-10">
+         
+          <div aria-hidden="true" className="pointer-events-none lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl">
+            <div className="absolute transform sm:top-0 sm:left-1/2 sm:translate-x-8 lg:top-1/2 lg:left-1/2 lg:-translate-y-1/2 lg:translate-x-8">
+              <div className="flex items-center space-x-6 lg:space-x-8">
+                <div className="grid shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                  <div className="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100">
+                    <img src="https://media.collegedekho.com/media/img/institute/crawled_images/Kumaraguru-College-of-Technology-KCT-Tamil-Nadu_2.png" alt="" className="size-full object-cover" />
+                  </div>
+                  <div className="h-64 w-44 overflow-hidden rounded-lg">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOlR0VdjFEXZY3WT2zN9c6SzSUYXRcTSRttg&s" alt="" className="size-full object-cover" />
+                  </div>
+                </div>
+                <div className="grid shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                  <div className="h-64 w-44 overflow-hidden rounded-lg">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNLInyZ4VRS_UTH4UahRess3gOj6ytHByweg&s" alt="" className="size-full object-cover" />
+                  </div>
+                  <div className="h-64 w-44 overflow-hidden rounded-lg">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxzBeCr_sg6QKaBQWRQUkGxgcRAFTaR5orwA&s" alt="" className="size-full object-cover" />
+                  </div>
+                  <div className="h-64 w-44 overflow-hidden rounded-lg">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOlR0VdjFEXZY3WT2zN9c6SzSUYXRcTSRttg&s" alt="" className="size-full object-cover" />
+                  </div>
+                </div>
+                <div className="grid shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                  <div className="h-64 w-44 overflow-hidden rounded-lg">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNLInyZ4VRS_UTH4UahRess3gOj6ytHByweg&s" alt="" className="size-full object-cover" />
+                  </div>
+                  <div className="h-64 w-44 overflow-hidden rounded-lg">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxzBeCr_sg6QKaBQWRQUkGxgcRAFTaR5orwA&s" alt="" className="size-full object-cover" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a href="/apply" className="inline-block rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-center font-medium text-white hover:bg-indigo-700">Project Intake</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+            <section id="hero" className="hero section dark-background mt-1">
+                <img src="https://i.ytimg.com/vi/XjlyusimmLQ/maxresdefault.jpg" alt="Hero Background" className="hero-bg" />
 
                 <div className="overlay">
-                    <div className="container" style={{ height: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div className="container" style={{ height: '10vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <div className="row gy-4 justify-content-between">
                             <div className="d-flex flex-column justify-content-center" style={{ textAlign: 'center' }} data-aos="fade-in">
                                 <h1>Ignite Your Ideas, Transform the Future</h1>
@@ -27,53 +92,276 @@ function Home() {
                 </div>
             </section>
 
-            {/* New Feature Section */}
-            <section className="project-intake-section">
-                <div className="row">
-                    <div className="left-column">
-                        <h2>Project Intake Program at Ré</h2>
-                        <p>The Project Intake Program at Ré provides an opportunity for students to propose and develop projects that align with their academic goals, passions, and the broader mission of Ré. This program is designed to foster innovation, research, and hands-on experience, empowering students to contribute to impactful projects with the support of expert mentors, state-of-the-art resources, and a collaborative ecosystem.</p>
 
-                        <ul>
-                            <li>Identify and evaluate student-led projects with the potential for real-world impact.</li>
-                            <li>Gain exposure to industry trends and research methodologies.</li>
-                            <li>Showcase skills and contribute meaningfully to the community.</li>
-                        </ul>
+            <section>
+            <div className="bg-white">
+                <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+                    <div>
+                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Project Intake Program at Ré</h2>
+                    <p className="mt-4 text-gray-700">The Project Intake Program at Ré provides an opportunity for students to propose and develop projects that align with their academic goals, passions, and the broader mission of Ré. This program is designed to foster innovation, research, and hands-on experience, empowering students to contribute to impactful projects with the support of expert mentors, state-of-the-art resources, and a collaborative ecosystem.
+
+                    Identify and evaluate student-led projects with the potential for real-world impact.
+                    Gain exposure to industry trends and research methodologies.
+                    Showcase skills and contribute meaningfully to the community.
+                        </p>
                     </div>
-                    <div className="right-column">
-                        <img src={projectImage} alt="Project Intake Program" />
+                    <div className="grid sm:gap-6 lg:gap-8">
+                    <img src="https://kctcse.wordpress.com/wp-content/uploads/2016/01/kct.jpg?w=579" alt="Walnut card tray with white powder coated steel divider and 3 punchout holes." className="rounded-lg bg-gray-100" />
+                    
                     </div>
+                </div>
                 </div>
             </section>
 
-            {/* New Section: Why Choose the Project Intake Program? */}
+            {/* New Feature Section */}
+            
+
+            {/* <div className="flex justify-center items-center h-full mt-10">
+      <div className="w-full max-w-xl p-6">
+        <ol className="flex items-center space-x-4 text-lg font-semibold text-center text-gray-600 bg-white sm:text-xl sm:space-x-6 rtl:space-x-reverse">
+          <li
+            className={`flex items-center cursor-pointer ${
+              selectedStep >= 1 ? 'text-blue-600 dark:text-blue-500' : ''
+            }`}
+            onClick={() => setSelectedStep(1)}
+          >
+            <span
+              className={`flex items-center justify-center w-8 h-8 me-3 text-sm border rounded-full shrink-0 ${
+                selectedStep >= 1
+                  ? 'border-blue-600 dark:border-blue-500'
+                  : 'border-gray-500 dark:border-gray-400'
+              }`}
+            >
+              1
+            </span>
+            Personal <span className="hidden sm:inline-flex sm:ms-3">Info</span>
+            <svg
+              className="w-4 h-4 ms-3 sm:ms-5 rtl:rotate-180"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 12 10"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="m7 9 4-4-4-4M1 9l4-4-4-4"
+              />
+            </svg>
+          </li>
+          <li
+            className={`flex items-center cursor-pointer ${
+              selectedStep >= 2 ? 'text-blue-600 dark:text-blue-500' : ''
+            }`}
+            onClick={() => setSelectedStep(2)}
+          >
+            <span
+              className={`flex items-center justify-center w-8 h-8 me-3 text-sm border rounded-full shrink-0 ${
+                selectedStep >= 2
+                  ? 'border-blue-600 dark:border-blue-500'
+                  : 'border-gray-500 dark:border-gray-400'
+              }`}
+            >
+              2
+            </span>
+            Account <span className="hidden sm:inline-flex sm:ms-3">Info</span>
+            <svg
+              className="w-4 h-4 ms-3 sm:ms-5 rtl:rotate-180"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 12 10"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="m7 9 4-4-4-4M1 9l4-4-4-4"
+              />
+            </svg>
+          </li>
+          <li
+            className={`flex items-center cursor-pointer ${
+              selectedStep >= 3 ? 'text-blue-600 dark:text-blue-500' : ''
+            }`}
+            onClick={() => setSelectedStep(3)}
+          >
+            <span
+              className={`flex items-center justify-center w-8 h-8 me-3 text-sm border rounded-full shrink-0 ${
+                selectedStep >= 3
+                  ? 'border-blue-600 dark:border-blue-500'
+                  : 'border-gray-500 dark:border-gray-400'
+              }`}
+            >
+              3
+            </span>
+            Review
+          </li>
+        </ol>
+
+        <div className="mt-6 p-6 border border-gray-300 rounded-lg shadow-md">
+          {renderContent()}
+        </div>
+      </div>
+    </div> */}
+
+
             <section className="why-choose-section">
-                <h2>Why Choose the Project Intake Program?</h2>
-                <p>Join us to transform your ideas into impactful projects with the support of expert mentors, resources, and a collaborative ecosystem.</p>
+                <h2 className='mb-2 text-2xl font-bold tracking-tight text-gray-900'>Why Choose the Project Intake Program?</h2>
+                <p className="font-normal text-gray-700 dark:text-gray-700">Join us to transform your ideas into impactful projects with the support of expert mentors, resources, and a collaborative ecosystem.</p>
 
                 <div className="cards-container">
+
                     {/* Card 1 */}
                     <div className="card">
-                        <h3>01</h3>
-                        <h4>Guidance & Mentorship</h4>
-                        <p>Work closely with experienced mentors to refine your ideas and develop innovative solutions that align with your academic and professional goals.</p>
+                        <h3 className='mb-2 text-2xl font-bold tracking-tight text-gray-900'>01</h3>
+                        <h4 className='mb-2 text-2xl font-bold tracking-tight text-gray-900'>Guidance & Mentorship</h4>
+                        <p className="font-normal text-gray-700 dark:text-gray-700">Work closely with experienced mentors to refine your ideas and develop innovative solutions that align with your academic and professional goals.</p>
                     </div>
 
                     {/* Card 2 */}
                     <div className="card">
-                        <h3>02</h3>
-                        <h4>Industry Exposure</h4>
-                        <p>Gain exposure to the latest industry trends and research methodologies, preparing you for future careers in academia, industry, and beyond.</p>
+                        <h3 className='mb-2 text-2xl font-bold tracking-tight text-gray-900'>02</h3>
+                        <h4 className='mb-2 text-2xl font-bold tracking-tight text-gray-900'> Industry Exposure</h4>
+                        <p className="font-normal text-gray-700 dark:text-gray-700">Gain exposure to the latest industry trends and research methodologies, preparing you for future careers in academia, industry, and beyond.</p>
                     </div>
 
                     {/* Card 3 */}
                     <div className="card">
-                        <h3>03</h3>
-                        <h4>Real-World Impact</h4>
-                        <p>Contribute to projects that aim to solve real-world problems and achieve the Sustainable Development Goals, making a meaningful impact on society.</p>
+                        <h3 className='mb-2 text-2xl font-bold tracking-tight text-gray-900'>03</h3>
+                        <h4 className='mb-2 text-2xl font-bold tracking-tight text-gray-900'>Real-World Impact</h4>
+                        <p className="font-normal text-gray-700 dark:text-gray-700">Contribute to projects that aim to solve real-world problems and achieve the Sustainable Development Goals, making a meaningful impact on society.</p>
                     </div>
                 </div>
             </section>
+            <div className="relative isolate overflow-hidden bg-gray-100 py-14 sm:py-22">
+    <div className="absolute inset-0 -z-10 size-full object-cover object-right md:object-center" />
+    
+    <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl lg:mx-0">
+            <h2 className="text-5xl font-semibold tracking-tight text-gray-800 sm:text-7xl">Work with us</h2>
+            <p className="mt-8 text-lg font-medium text-pretty text-gray-600 sm:text-xl/8">
+                Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. 
+                Elit sunt amet fugiat veniam occaecat fugiat.
+            </p>
+        </div>
+        <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
+            <dl className="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="flex flex-col-reverse gap-1">
+                    <dt className="text-base/7 text-gray-600">Offices worldwide</dt>
+                    <dd className="text-4xl font-semibold tracking-tight text-gray-800">12</dd>
+                </div>
+                <div className="flex flex-col-reverse gap-1">
+                    <dt className="text-base/7 text-gray-600">Full-time colleagues</dt>
+                    <dd className="text-4xl font-semibold tracking-tight text-gray-800">300+</dd>
+                </div>
+                <div className="flex flex-col-reverse gap-1">
+                    <dt className="text-base/7 text-gray-600">Hours per week</dt>
+                    <dd className="text-4xl font-semibold tracking-tight text-gray-800">40</dd>
+                </div>
+                <div className="flex flex-col-reverse gap-1">
+                    <dt className="text-base/7 text-gray-600">Paid time off</dt>
+                    <dd className="text-4xl font-semibold tracking-tight text-gray-800">Unlimited</dd>
+                </div>
+            </dl>
+        </div>
+    </div>
+</div>
+
+
+
+
+            
+
+<footer class="bg-white dark:bg-gray-900">
+    <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+        <div class="md:flex md:justify-between">
+          <div class="mb-6 md:mb-0">
+              <div class="flex items-center">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPO54YUiQ5sJYdK7mtCNAVxfpaqX4e-AQdhWdnXrFnSRCHixI1D8bK2poUTrAlgC8CaHU&usqp=CAU" class="h-8 me-3" alt="FlowBite Logo" />
+                  <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Ré</span>
+              </div>
+          </div>
+          <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+              <div>
+                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
+                  <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                      <li class="mb-4">
+                          <a href="#" class="hover:underline">Working Lab</a>
+                      </li>
+                      <li>
+                          <a href="#" class="hover:underline">Technical mentors</a>
+                      </li>
+                  </ul>
+              </div>
+              <div>
+                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Contact Us</h2>
+                  <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                      <li class="mb-4">
+                          <a href="#" class="hover:underline ">LinkedIn</a>
+                      </li>
+                      <li>
+                          <a href="#" class="hover:underline">Instagram</a>
+                      </li>
+                  </ul>
+              </div>
+              <div>
+                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
+                  <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                      <li class="mb-4">
+                          <a href="#" class="hover:underline">Privacy Policy</a>
+                      </li>
+                      <li>
+                          <a href="#" class="hover:underline">Terms &amp; Conditions</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+      <div class="sm:flex sm:items-center sm:justify-between">
+          <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2025 <a href="#" class="hover:underline">Nagulesh</a>. All Rights Reserved.
+          </span>
+          <div class="flex mt-4 sm:justify-center sm:mt-0">
+              <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
+                        <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd"/>
+                    </svg>
+                  <span class="sr-only">Facebook page</span>
+              </a>
+              <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 21 16">
+                        <path d="M16.942 1.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.585 11.585 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3A17.392 17.392 0 0 0 .182 13.218a15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.63 10.63 0 0 1-1.706-.83c.143-.106.283-.217.418-.33a11.664 11.664 0 0 0 10.118 0c.137.113.277.224.418.33-.544.328-1.116.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM6.678 10.813a1.941 1.941 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z"/>
+                    </svg>
+                  <span class="sr-only">Discord community</span>
+              </a>
+              <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 17">
+                    <path fill-rule="evenodd" d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z" clip-rule="evenodd"/>
+                </svg>
+                  <span class="sr-only">Twitter page</span>
+              </a>
+              <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="sr-only">GitHub account</span>
+              </a>
+              <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 0a10 10 0 1 0 10 10A10.009 10.009 0 0 0 10 0Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.094 20.094 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.239 11.41 11.41 0 0 0 4.769-3.366ZM8 1.707a8.821 8.821 0 0 1 2-.238 8.5 8.5 0 0 1 5.664 2.152 9.608 9.608 0 0 1-4.476 3.087A45.758 45.758 0 0 0 8 1.707ZM1.642 8.262a8.57 8.57 0 0 1 4.73-5.981A53.998 53.998 0 0 1 9.54 7.222a32.078 32.078 0 0 1-7.9 1.04h.002Zm2.01 7.46a8.51 8.51 0 0 1-2.2-5.707v-.262a31.64 31.64 0 0 0 8.777-1.219c.243.477.477.964.692 1.449-.114.032-.227.067-.336.1a13.569 13.569 0 0 0-6.942 5.636l.009.003ZM10 18.556a8.508 8.508 0 0 1-5.243-1.8 11.717 11.717 0 0 1 6.7-5.332.509.509 0 0 1 .055-.02 35.65 35.65 0 0 1 1.819 6.476 8.476 8.476 0 0 1-3.331.676Zm4.772-1.462A37.232 37.232 0 0 0 13.113 11a12.513 12.513 0 0 1 5.321.364 8.56 8.56 0 0 1-3.66 5.73h-.002Z" clip-rule="evenodd"/>
+                </svg>
+                  <span class="sr-only">Dribbble account</span>
+              </a>
+          </div>
+      </div>
+    </div>
+</footer>
+
+
         </>
     );
 }

@@ -8,7 +8,7 @@ const userVerification = (req, res, next) => {
         const token = req.cookies.access_token;
 
         if (!token || token === "null") {
-            return res.status(401).json({ status: false, message: "Token is null or missing" });
+            return res.json({ status: false, message: "Token is null or missing" });
         }
 
         jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {

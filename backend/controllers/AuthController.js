@@ -18,7 +18,6 @@ export const Login = async (req,res) =>{
         res.cookie('access_token' , token,{
             httpOnly:true
         })
-        // localStorage.setItem("access_token", token);
         res.status(200).json({
             success : true,
             message : "User Loggedin successfully",
@@ -58,3 +57,28 @@ export const getUser = async (req,res) =>{
         })
     }
 }
+
+export const Logout = async (req, res) => {
+    try {
+        // Clear the authentication token from cookies
+        res.clearCookie('access_token', {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production', // Secure in production
+            sameSite: 'Strict', // Prevent CSRF
+            path: '/', // Specify path for clearing cookie
+        });
+
+        res.status(200).json({
+            success: true,
+            message: "User logged out successfully"
+        });
+
+    } catch (error) {
+        console.error('Logout Error:', error); // Log error to the server for debugging
+        res.status(500).json({
+            success: false,
+            message: "Something went wrong during logout.",
+            error: error.message
+        });
+    }
+};

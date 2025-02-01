@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AOS from "aos";
 import "aos/dist/aos.css";
 import "./HomeScreen.css"; 
 
 const HomeScreen = () => {
   const [user, setUser] = useState('');
-  const navigate = useNavigate(); // Correct placement
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/auth/get-user", {
+        const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/auth/get-user`, {
           method: "GET",
           credentials: "include",
         });
@@ -33,7 +32,7 @@ const HomeScreen = () => {
     };
 
     getData();
-  }, [navigate]); // Dependency array added
+  }, [navigate]); 
 
   const handleApply = () => {
     navigate("/apply");

@@ -80,6 +80,8 @@ function AddProject() {
     ];
 
     return (
+        <>
+        <Navbar />
         <div className="container1">
             <div className="header-project">
                 <img src={logo} alt="Logo" className="logo" />
@@ -243,6 +245,7 @@ function AddProject() {
                 )}
             </form> </div>
         </div>
+        </>
     );
 }
 

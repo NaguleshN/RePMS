@@ -2,16 +2,16 @@ import { useState, useEffect, useRef } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 
 const CheckAuthentication = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(null); // Use null to track loading state
-    const hasChecked = useRef(false); // Prevent duplicate API calls
+    const [isLoggedIn, setIsLoggedIn] = useState(null); 
+    const hasChecked = useRef(false); 
 
     useEffect(() => {
-        if (hasChecked.current) return; // Prevent re-running
+        if (hasChecked.current) return; 
         hasChecked.current = true;
 
         const checkAuth = async () => {
             try {
-                const res = await fetch("http://localhost:5000/api/auth/verify", {
+                const res = await fetch(`${import.meta.env.VITE_BASE_URL}/api/auth/verify`, {
                     credentials: "include",
                 });
                 const data = await res.json();
@@ -25,7 +25,7 @@ const CheckAuthentication = () => {
         checkAuth();
     }, []);
 
-    if (isLoggedIn === null) return <div>Loading...</div>; // Show loading state
+    if (isLoggedIn === null) return <div>Loading...</div>;
 
     return isLoggedIn ? <Outlet /> : <Navigate to="/login" replace />;
 };

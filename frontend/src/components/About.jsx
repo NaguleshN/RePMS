@@ -2,9 +2,11 @@
 import React from 'react';
 import '../styles/About.css'; // Import the CSS for styling
 import aboutImage from '../assets/re6.webp'; // Import the image
+import Navbar from './Navbar';
 
 function About() {
     return (
+        <> <Navbar />
         <section id="about" className="about-section">
             <div className="container section-title">
                 <h2>About Us</h2>
@@ -28,6 +30,7 @@ function About() {
                 </div>
             </div>
         </section>
+        </>
     );
 }
 

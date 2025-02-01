@@ -1,13 +1,14 @@
-// src/components/Home.js
 import React from 'react';
 import '../styles/Home.css';
 import heroimg from "../assets/re-hero.jpg";
-import projectImage from "../assets/re2.webp"; // Import the right column image
+import projectImage from "../assets/re2.webp"; 
+import Navbar from './Navbar.jsx';
 
 
 function Home() {
     return (
         <>
+        <Navbar />
             <section id="hero" className="hero section dark-background">
                 <img src={heroimg} alt="Hero Background" className="hero-bg" />
 

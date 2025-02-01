@@ -1,5 +1,5 @@
 import express from 'express';
-import { getUser, Login } from '../controllers/AuthController.js';
+import { getUser, Login, Logout } from '../controllers/AuthController.js';
 import userVerification from '../middleware/AuthProtect.js';
 
 
@@ -14,6 +14,7 @@ router.get("/verify", userVerification , (req,res) => {
     } 
 });
 router.post("/login",Login)
+router.post("/logout",Logout)
 router.get("/get-user",getUser)
 
 export default router

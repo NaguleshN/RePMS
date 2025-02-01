@@ -1,8 +1,9 @@
 import { useState,useEffect } from 'react';
 import { ApplyApi } from '../api/ApplyApi';
 import { useNavigate } from "react-router-dom";
+import Navbar from '../components/Navbar'
 
-const Apply = () =>{
+const Apply = () => {
   
   const navigate = useNavigate();
     const [title, setTitle] = useState("");
@@ -10,9 +11,9 @@ const Apply = () =>{
     const [projectTheme, setProjectTheme] = useState("");
     const [problemStatement, setProblemStatement] = useState("");
     const [abstract, setAbstract] = useState("");
-    const [file, setFile] = useState(null); // File object
+    const [file, setFile] = useState(null);
     const [isInterDepartmental, setIsInterDepartmental] = useState(false);
-    const [domains, setDomains] = useState([]); // Array of strings
+    const [domains, setDomains] = useState([]); 
     const [teamSize, setTeamSize] = useState(1);
     const [mentor, setMentor] = useState({
         name: "",
@@ -38,7 +39,6 @@ const Apply = () =>{
         const num = event.target.value;
         setNumMembers(num);
     
-        // Update the team members state to have the correct number of fields
         const updatedMembers = Array.from({ length: num }, (_, index) => ({
           name: teamMembers[index]?.name || '',
           rollNo: teamMembers[index]?.rollNo || '',
@@ -47,38 +47,8 @@ const Apply = () =>{
         }));
         setTeamMembers(updatedMembers);
       };
-    
-      // Handle team member changes
-      // const handleTeamMemberChange = (index, field, value) => {
-      //   const updatedMembers = [...teamMembers];
-      //   updatedMembers[index][field] = value;
-      //   setTeamMembers(updatedMembers);
-      // };
-
-    const handleMentorNameChange = (event) => {
-        setMentorName(event.target.value);
-      };
-    
-      const handleMentorDesignationChange = (event) => {
-        setMentorDesignation(event.target.value);
-      };
-    
-      const handleMentorDepartmentChange = (event) => {
-        setMentorDepartment(event.target.value);
-      };
-    
-      const handleMentorEmailChange = (event) => {
-        setMentorEmail(event.target.value);
-      };
-    
-      const handleMentorContactChange = (event) => {
-        const value = event.target.value;
-        if (!isNaN(value)) {
-          setMentorContact(value);
-        } else {
-          alert("Please enter a valid contact number.");
-        }
-      };
+ 
+     
     
     const handleThemeChange = (event) => {
         setProjectTheme(event.target.value);
@@ -102,20 +72,9 @@ const Apply = () =>{
         }
     };
     
-    
-      const handleContactChange = (event) => {
-        const value = event.target.value;
-        if (!isNaN(value)) {
-          setContact(value);
-        } else {
-          alert("Please enter a valid contact number.");
-        }
-      };
-    
       const handleHasTeamChange = (e) => {
         setHasTeam(e.target.value);
       };
-
 
       const handleMentorChange = (e) => {
         const { name, value } = e.target;
@@ -136,7 +95,6 @@ const Apply = () =>{
       setTeamMembers((prevMembers) => {
           const newMembers = [...prevMembers];
   
-          // Ensure the index exists before modifying
           if (!newMembers[index]) {
               newMembers[index] = { name: "", rollNo: "", email: "", contact: "" };
           }
@@ -174,11 +132,6 @@ const Apply = () =>{
           alert("Please upload a project file.");
           return;
       }
-      
-      // if (domains.length === 0) {
-      //     alert("Please select at least one domain.");
-      //     return;
-      // }
       
       if (teamSize <= 0) {
           alert("Team size must be greater than 0.");
@@ -255,9 +208,7 @@ const Apply = () =>{
           return;
       }
       
-      // If all checks pass, proceed with form submission
       
-
         const formData = new FormData();
         formData.append("title", title);
         formData.append("projectTheme", projectTheme);
@@ -268,14 +219,12 @@ const Apply = () =>{
         formData.append("domains", JSON.stringify(domains)); // Convert array to JSON string
         formData.append("teamSize", teamSize);
 
-        // Mentor details
         formData.append("mentor[name]", mentor.name);
         formData.append("mentor[designation]", mentor.designation);
         formData.append("mentor[department]", mentor.department);
         formData.append("mentor[email]", mentor.email);
         formData.append("mentor[contact]", mentor.contact);
 
-        // Lead details
         formData.append("lead[name]", lead.name);
         formData.append("lead[rollNo]", lead.rollNo);
         formData.append("lead[institution]", lead.institution);
@@ -287,8 +236,6 @@ const Apply = () =>{
         formData.append("numMembers", numMembers);
         formData.append("teamMembers", JSON.stringify(teamMembers));
         
-        // console.log("Form submitted successfully with the following data:");
-        // console.log(formData);
         const result = await ApplyApi(formData);
         console.log(result.success === true)
         if(result.success === true){
@@ -302,6 +249,7 @@ const Apply = () =>{
   }, [numMembers]);
   
   return (
+    <> <Navbar />
     <form className="m-5 flex justify-center items-center" onSubmit={handleSubmit}> 
       <div className="space-y-12">
         <div className="border-b border-gray-900/10 pb-12">
@@ -524,7 +472,6 @@ const Apply = () =>{
                     </fieldset>
                 )}
 
-                {/* Question 3: Team size */}
                 <fieldset className="mt-4">
                     <legend className="text-sm font-semibold text-gray-900">8. No. of members in your team</legend>
                     <input
@@ -823,6 +770,7 @@ const Apply = () =>{
       </div>
       </div>
     </form>
+    </>
   )
 }
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import GetProjectsApi from '../api/GetProjectsApi';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 const ListProjects = () => {
     const [projects, setProjects] = useState([]);
@@ -11,10 +12,10 @@ const ListProjects = () => {
             const res = await GetProjectsApi();
             console.log(res)
             if (!res) {
-                navigate("/"); // Redirect if token is invalid
+                navigate("/"); 
               }
               else{
-                  setProjects(res); // Assuming `res` is an array
+                  setProjects(res); 
               }
         } catch (error) {
             console.error("Error fetching projects:", error);
@@ -26,7 +27,7 @@ const ListProjects = () => {
     }, []); 
 
     return (
-       
+      <><Navbar/>
         <div className="flex flex-wrap justify-center gap-6 p-6">
         {projects && projects.length > 0 ? (
           projects.map((project, index) => (
@@ -118,7 +119,7 @@ const ListProjects = () => {
         )}
       </div>
 
-
+        </>
     );
 };
 

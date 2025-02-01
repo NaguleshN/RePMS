@@ -6,20 +6,19 @@ const userSchema = new mongoose.Schema(
             type:String,
             required:true,
         },
+        rollNo:{
+            type:String,
+            required:true,
+        },
         email:{
             type:String,
             required:true,
             unique:true
         },
-        phoneNumber:{
+        lastSignInTime:{
             type:String,
-            
-        },
-        avatar:{
-            type:String,
-            
-        },
-
+            required:true
+        }
     },{
         timestamps:true
     }

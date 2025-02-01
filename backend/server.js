@@ -4,10 +4,7 @@ import connectDb from './config/db.js';
 import cors from 'cors';
 import router from './Routes/AuthRoutes.js';
 import cookieParser from 'cookie-parser';
-import path from 'path';
-import fs from 'fs';
 import applyRoute from './Routes/ApplyRoute.js';
-import multer from 'multer';
 
 const PORT = process.env.PORT || 5000;
 
@@ -20,13 +17,6 @@ app.use(cors({
     credentials:true
 }
 ))
-
-// const uploadDir = path.resolve("uploads");
-// console.log(uploadDir)
-// if (!fs.existsSync(uploadDir)) {
-//     fs.mkdirSync(uploadDir, { recursive: true }); 
-// }
-
 
 
 app.use("/api/forms",  applyRoute)
@@ -41,9 +31,3 @@ connectDb();
 app.listen(PORT,()=>{
     console.log(`Successfully connected to port ${PORT}`)
 })
-
-app.get("/",(req,res)=>{
-    res.status(200).send("Hello");
-})
-
-// app.post()

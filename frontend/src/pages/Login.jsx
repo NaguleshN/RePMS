@@ -2,21 +2,25 @@ import { signInWithPopup } from 'firebase/auth'
 import React from 'react';
 import {auth , provider} from '../firebase.js'
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar.jsx';
 
 const Login = () => {
     const navigate = useNavigate();
+
+
     const handleLogin = async() =>{
         const loginResponse = await signInWithPopup(auth, provider) 
-        console.log(loginResponse)
+        // console.log(loginResponse)
         const user = loginResponse.user
+        const tokres= loginResponse._tokenResponse
         const userData = {
-            name : user.displayName,
+            name : tokres.firstName,
+            rollNo : tokres.lastName, 
             email: user.email,
-            phoneNumber: user.phoneNumber,
-            avatar: user.photoURL,
+            lastSignInTime : user.metadata.lastSignInTime
         }
 
-        const response = await fetch("http://localhost:5000/api/auth/login",
+        const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/auth/login`,
             {
                 method:"POST",
                 credentials:"include",
@@ -33,6 +37,7 @@ const Login = () => {
         navigate('/')
     } 
   return (
+    <> <Navbar />
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
     <div className="bg-white p-8 rounded-xl shadow-lg max-w-sm w-full text-center">
       <h1 className="text-3xl font-semibold text-gray-800 mb-6">Login to our website</h1>
@@ -44,7 +49,7 @@ const Login = () => {
       </button>
     </div>
   </div>
-  
+  </>
   )
 }
 

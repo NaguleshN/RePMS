@@ -1,9 +1,12 @@
 // src/components/Contact.js
 import React from 'react';
 import '../styles/Contact.css'; // Import the CSS for styling
+import Navbar from './Navbar';
 
 function Contact() {
     return (
+        <>
+        <Navbar />
         <section id="contact" className="contact-section">
             <h2 className="contact-title">Contact Us</h2>
             <div className="contact-wrapper">
@@ -24,6 +27,7 @@ function Contact() {
                 </div>
             </div>
         </section>
+        </>
     );
 }
 

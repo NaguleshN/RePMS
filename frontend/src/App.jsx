@@ -18,9 +18,6 @@ function App() {
   return (
     
     <Router>
-      {/* <div className="main-content"> */}
-      {/* <Navbar /> */}
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -35,7 +32,6 @@ function App() {
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
-      {/* </div> */}
     </Router>
   )
 }

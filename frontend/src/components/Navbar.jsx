@@ -176,31 +176,63 @@ function Navbar() {
       {/* Mobile menu */}
       <div className={`sm:hidden ${mobileMenuOpen ? 'block' : 'hidden'}`} id="mobile-menu">
         <div className="space-y-1 px-2 pt-2 pb-3">
-          <a
-            href="#"
-            className="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
-            aria-current="page"
-          >
-            Dashboard
-          </a>
-          <a
-            href="#"
-            className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-          >
-            Team
-          </a>
-          <a
-            href="#"
-            className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-          >
-            Projects
-          </a>
-          <a
-            href="#"
-            className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-          >
-            Calendar
-          </a>
+        <NavLink
+                    to="/"
+                    className={({ isActive }) =>
+                        `rounded-md px-3 py-2 text-sm font-medium ${
+                        isActive ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white"
+                        }`
+                    }
+                    >
+                    Home
+          </NavLink>
+          
+          <NavLink
+                    to="/contact"
+                    className={({ isActive }) =>
+                        `rounded-md px-3 py-2 text-sm font-medium ${
+                        isActive ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white"
+                        }`
+                    }
+                    >
+                    Contact
+                </NavLink>
+                
+                    <NavLink
+                    to="/apply"
+                    className={({ isActive }) =>
+                        `rounded-md px-3 py-2 text-sm font-medium ${
+                        isActive ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white"
+                        }`
+                    }
+                    >
+                    Project Intake
+                </NavLink>
+                <NavLink
+                    to="/about"
+                    className={({ isActive }) =>
+                        `rounded-md px-3 py-2 text-sm font-medium ${
+                        isActive ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white"
+                        }`
+                    }
+                >
+                    About
+               </NavLink>
+
+                {isLoggedIn ? (
+               <NavLink
+                    to="/allprojects"
+                    className={({ isActive }) =>
+                        `rounded-md px-3 py-2 text-sm font-medium ${
+                        isActive ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white"
+                        }`
+                    }
+                >
+                    View Projects
+               </NavLink>
+               ):(
+                <div />
+                )}
         </div>
       </div>
     </nav>

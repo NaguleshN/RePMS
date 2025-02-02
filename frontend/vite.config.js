@@ -9,11 +9,5 @@ export default defineConfig({
   ],
   server: {
     port: 3000, 
-    proxy: {
-      '/api': {
-        target: import.meta.env.VITE_BASE_URL,
-        changeOrigin: true,
-      },
-    },
   },
 });

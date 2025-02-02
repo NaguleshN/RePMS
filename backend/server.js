@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser())
 app.use(cors({
-    origin: ["http://localhost:3000","http://localhost:3001","https://repms.onrender.com"],
+    origin: ["http://localhost:3000","http://localhost:3001","https://repms-1.onrender.com"],
     credentials:true
 }
 ))

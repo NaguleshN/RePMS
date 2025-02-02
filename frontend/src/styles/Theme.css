@@ -5,7 +5,7 @@
 --------------------------------------------------------------*/
 .themes-section {
     padding: 60px 20px; /* Padding around the section */
-    background-color: #f9f9f9; /* Light background for the themes section */
+    padding-top: 2%;
 }
 
 .themes-title {
@@ -23,39 +23,65 @@
 
 /* Cards Container */
 .cards-container {
+    overflow: hidden; /* Hide overflow to create scroll effect */
+    position: relative; /* Position relative for absolute child */
+}
+.container-card{
+    margin-left: auto;
+    margin-right: auto;
+}
+.card-wrapper {
     display: flex; /* Use flexbox for layout */
-    flex-wrap: wrap; /* Allow wrapping of cards */
-    justify-content: space-around; /* Space between cards */
+    width: calc(100% * 5); /* Total width for 5 cards */
+    animation: scroll-left 20s linear infinite; /* Animation effect */
+    animation-play-state: running;
+    margin-left: -20%; /* Start position to show 2.5 cards */
+    transition: animation 0.5s ease;
 }
 
-/* Individual Card Styles */
 .theme-card {
-    background-color: #fff; /* White background for cards */
-    border-radius: 15px; /* Rounded edges */
-    padding: 20px; /* Inner padding */
-    width: calc(40% - 20px); /* Width of each card (adjust as needed) */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
-    margin-bottom: 20px; /* Space below each card */
-    transition: transform .2s ease-in-out; /* Transition effect on hover */
+    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+    border-radius: 15px;
+    padding: 80px 40px;
+    margin: 10px;
+    flex: 0 0 20%;
+    box-sizing: border-box;
 }
-
-.theme-card:hover {
-    transform: translateY(-5px); /* Lift card on hover */
+.card-wrapper:hover {
+    animation-play-state: paused; /* Pause the animation on hover */
+}
+.theme-card:last-child {
+    margin-right: 0; /* Remove margin on last card */
 }
 
 .theme-card h3 {
-    font-size: 24px; /* Font size for card title */
-    margin-bottom: 10px; /* Space below title */
-    color: darkblue;
+    font-size: 30px;
+    font-weight: 100;
+    padding-bottom: 2%;
 }
 
 .theme-card p {
     font-size: 16px; /* Font size for card content */
 }
 
+/* Infinite Scroll Animation */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0); /* Start position */
+    }
+    100% {
+        transform: translateX(-100%); /* Shift left by the total width of all cards */
+    }
+}
+
 /* Responsive styles (optional) */
 @media (max-width: 640px) {
    .theme-card {
        width: calc(100% - 20px); /* Full width on smaller screens */
+       margin-bottom: 20px; /* Space below each card on small screens */
+   }
+
+   .card-wrapper {
+       animation: none; /* Disable scrolling on very small screens if needed */
    }
 }

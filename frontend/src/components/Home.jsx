@@ -3,12 +3,13 @@ import '../styles/Home.css';
 import heroimg from "../assets/re-hero.jpg";
 import projectImage from "../assets/re2.webp"; 
 import Navbar from './Navbar.jsx';
-
+import Timeline from './Timeline';
+import Themes from "./Themes.jsx";
 
 function Home() {
     return (
         <>
-        <Navbar />
+            <Navbar />
             <section id="hero" className="hero section dark-background">
                 <img src={heroimg} alt="Hero Background" className="hero-bg" />
 
@@ -19,7 +20,7 @@ function Home() {
                                 <h1>Ignite Your Ideas, Transform the Future</h1>
                                 <p>Join the Project Intake Program at Ré</p>
                                 <div className="d-flex" style={{ justifyContent: 'center' }}>
-                                    <a href="/add-project" className="btn-get-started">Get Started</a>
+                                    <a href="/apply" className="btn-get-started">Get Started</a>
                                 </div>
                             </div>
                         </div>
@@ -42,6 +43,26 @@ function Home() {
                     </div>
                     <div className="right-column">
                         <img src={projectImage} alt="Project Intake Program" />
+                    </div>
+                </div>
+            </section>
+            <section className="statistics-section">
+                <div className="container statistics-container">
+                    <div className="statistic-item">
+                        <h3>847</h3>
+                        <p>Supported Startups</p>
+                    </div>
+                    <div className="statistic-item">
+                        <h3>60+</h3>
+                        <p>Patents Filed</p>
+                    </div>
+                    <div className="statistic-item">
+                        <h3>1483</h3>
+                        <p>Employment Generated</p>
+                    </div>
+                    <div className="statistic-item">
+                        <h3>1431</h3>
+                        <p>Events Conducted</p>
                     </div>
                 </div>
             </section>
@@ -74,6 +95,19 @@ function Home() {
                     </div>
                 </div>
             </section>
+            <section className="who-can-apply-section">
+                <h2 className="who-can-apply-title">Who Can Apply</h2>
+                <h3 className="who-can-apply-subtitle">Eligibility criteria for applicants:</h3>
+                <ul className="who-can-apply-list">
+                    <li>Technovative and/or appeal to a mass market</li>
+                    <li>Implementable</li>
+                    <li>Commercially viable</li>
+                    <li>Entirely new, better alternative and/or affordable</li>
+                    <li>Committed individual/team</li>
+                </ul>
+            </section>
+            <Themes/>
+            <Timeline />
         </>
     );
 }

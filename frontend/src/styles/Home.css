@@ -154,6 +154,47 @@
 }
 
 /*--------------------------------------------------------------
+# Statistics Section
+--------------------------------------------------------------*/
+.statistics-section {
+    background-color: darkblue; /* Dark blue background */
+    padding: 2% 1%; /* Padding around the section */
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-top: 3%;
+}
+
+.statistics-container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-around; /* Space items evenly */
+    align-items: center; /* Center align items vertically */
+}
+
+.statistic-item {
+    color: white; /* Text color for items */
+    text-align: center; /* Center align text */
+}
+
+.statistic-item h3 {
+    font-size: 36px; /* Font size for numbers */
+    margin-bottom: 5px; /* Space below number */
+}
+
+.statistic-item p {
+    font-size: 18px; /* Font size for labels */
+}
+@media (max-width: 640px) {
+    .statistics-container {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: center; /* Center align items horizontally */
+    }
+ 
+    .statistic-item {
+        flex-basis: 100%; /* Full width on smaller screens */
+        margin-bottom: 15px; /* Space below each item on small screens */
+    }
+ }
+/*--------------------------------------------------------------
 # Why Choose Us Section
 --------------------------------------------------------------*/
 .why-choose-section {
@@ -186,7 +227,7 @@
     width: 30%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
-    background-color: rgb(230, 230, 230);
+    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
     text-align: left;
     transition: transform .2s ease-in-out;
 }
@@ -219,4 +260,40 @@
    .card {
        width: 80%;
    }
+}
+
+/*--------------------------------------------------------------
+# Who Can Apply Section
+--------------------------------------------------------------*/
+.who-can-apply-section {
+    padding: 40px 20px; /* Padding around the section */
+    border-radius: 10px; /* Rounded corners */
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 2%;
+}
+
+.who-can-apply-title {
+    text-align: center; /* Center align title */
+    color: darkblue;
+    font-size: 36px; /* Font size for heading */
+    margin-bottom: 3%; /* Space below title */
+}
+
+.who-can-apply-subtitle {
+    text-align: left; /* Left align subtitle */
+    font-size: 24px; /* Font size for subtitle */
+    margin-bottom: 15px; /* Space below subtitle */
+    padding-left: 5%;
+}
+
+.who-can-apply-list {
+    list-style-type: disc; /* Use bullet points for list */
+    padding-left: 10%; /* Indent list items */
+}
+
+.who-can-apply-list li {
+    font-size: 18px; /* Font size for list items */
+    margin-bottom: 10px; /* Space between list items */
 }

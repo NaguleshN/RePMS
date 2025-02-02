@@ -1,0 +1,89 @@
+/* src/styles/Timeline.css */
+
+/*--------------------------------------------------------------
+# Timeline Section
+--------------------------------------------------------------*/
+.timeline-section {
+    padding: 60px 20px; /* Padding around the section */
+    background-color: #f9f9f9; /* Light background for visibility */
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.timeline-title {
+    text-align: center; /* Center align title */
+    font-size: 36px; /* Font size for heading */
+    margin-bottom: 30px; /* Space below title */
+    color: darkblue;
+}
+
+.timeline-items {
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: space-between; /* Space items evenly */
+    position: relative; /* Position relative for absolute child */
+}
+
+.timeline-item {
+    position: relative;
+    flex-basis: 23%; /* Adjust width of each item (23% allows for spacing) */
+    text-align: center; /* Center align text */
+}
+
+.circle {
+    width: 24px;
+    height: 24px;
+    background-color: #007bff; /* Circle color */
+    border-radius: 50%; /* Make it circular */
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+}
+
+.line {
+    position: absolute;
+    left: 50%; /* Center line with respect to item */
+    top: 12px; /* Align with circle's center */
+    width: calc(100%); /* Full width minus circle width */
+    height: 2px; /* Line thickness */
+    background-color: #007bff; /* Line color */
+}
+
+.timeline-text {
+    margin-top: 10px;
+    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+    padding: 15%; /* Padding inside text area */
+    border-radius: 15px;
+    height: 85%;
+}
+
+.timeline-text h3 {
+    font-size: 24px; /* Font size for subheading */
+    padding-bottom: 3%;
+    color: darkblue;
+}
+
+.timeline-text p {
+    font-size: 16px; /* Font size for paragraph text */
+    text-align: left; /* Align paragraph text to left */
+}
+
+/* Responsive styles (optional) */
+@media (max-width: 640px) {
+   .timeline-section {
+       width: 100%; /* Full width on smaller screens */
+   }
+
+   .timeline-items {
+       flex-direction: column; /* Stack items vertically on small screens */
+       align-items: center; /* Center align items horizontally */
+   }
+
+   .timeline-item {
+       flex-basis: auto; /* Allow full width on small screens */
+       margin-bottom: 20px; /* Space below each item on small screens */
+   }
+
+   .line {
+       display:none; /* Hide lines on small screens if needed */
+   }
+}

@@ -16,7 +16,13 @@ export const Login = async (req,res) =>{
 
         user =user.toObject({getters:true})
         const token = jwt.sign(user,process.env.JWT_SECRET)
-        res.cookie('access_token' , token)
+        res.cookie("access_token", token, {
+            httpOnly: true,
+            secure: true, // Set `true` in production (only allows HTTPS)
+            sameSite: "Lax", // Controls cross-site behavior (try "None" if using cross-origin)
+            maxAge: 24 * 60 * 60 * 1000, // 1 day
+          });
+          
         res.status(200).json({
             success : true,
             message : "User Loggedin successfully",

@@ -16,9 +16,7 @@ export const Login = async (req,res) =>{
 
         user =user.toObject({getters:true})
         const token = jwt.sign(user,process.env.JWT_SECRET)
-        res.cookie('access_token' , token,{
-            httpOnly:true
-        })
+        res.cookie('access_token' , token)
         res.status(200).json({
             success : true,
             message : "User Loggedin successfully",
